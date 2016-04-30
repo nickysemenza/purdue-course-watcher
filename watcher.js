@@ -7,10 +7,8 @@ var accountSid = settings.accountSid;
 var authToken = settings.authToken;
 var twilio_number = settings.twilio_number;
 var recipient_phone_number = settings.recipient_phone_number;
-
-var crn = 25220; //CRN number
-var term = 201710; //201710 is Fall 2016 for some reason?? why purdue
-
+var crn = settings.crn;
+var term = settings.term;
 var client = require('twilio')(accountSid, authToken);
 var domain = 'https://selfservice.mypurdue.purdue.edu/prod/bwckschd.p_disp_detail_sched?term_in='+term+'&crn_in='+crn;
 function gotHTML(err, resp, html) {
@@ -29,10 +27,10 @@ function gotHTML(err, resp, html) {
 			  	if(i==10)//the 10th TD is the number of spots available
 			  	{
 			  		var spots = elem.text();
+			  		var msg = coursename+" has "+spots+" spots";
+			  			console.log(msg);
 			  		if(spots!=0)
 			  		{
-			  			var msg = coursename+" has "+spots+" spots";
-			  			console.log(msg);
 			  			client.messages.create({
 						    body: msg,
 						    to: recipient_phone_number,
