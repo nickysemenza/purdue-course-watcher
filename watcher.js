@@ -1,10 +1,12 @@
 var $ = require('cheerio');
 var request = require('request');
+var settings = require('./settings');
+
 // Your accountSid and authToken from twilio.com/user/account
-var accountSid = '';
-var authToken = "";
-var twilio_number = "";//the number texts will be coming from
-var recipient_phone_number = "";//the number to send alerts to
+var accountSid = settings.accountSid;
+var authToken = settings.authToken;
+var twilio_number = settings.twilio_number;
+var recipient_phone_number = settings.recipient_phone_number;
 
 var crn = 25220; //CRN number
 var term = 201710; //201710 is Fall 2016 for some reason?? why purdue
