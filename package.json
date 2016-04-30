@@ -1,0 +1,17 @@
+{
+  "name": "purdue-course-watcher",
+  "version": "1.0.0",
+  "description": "watch purdue courses for when slots open up",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nicky Semenza <nicky@nickysemenza.com> (http://nickysemenza.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "request": "^2.72.0",
+    "twilio": "^2.9.1"
+  }
+}
